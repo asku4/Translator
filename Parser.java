@@ -84,15 +84,16 @@ public class Parser{
       }
     }
     showRPN();
+
     StackMachine stackMachine = new StackMachine();
-    stackMachine.StackMachine(RPN, excludeList);
+    stackMachine.handle(RPN, excludeList);
 
     return true;
   }
 
 
   private boolean expr () {
-    return (assignExpr() || ifCondition()|| whileLoop()  || forLoop() || doWhileLoop() || linkList() );
+    return (assignExpr() || ifCondition() || whileLoop()  || forLoop() || doWhileLoop() || linkList() );
   }
 
 
@@ -163,7 +164,7 @@ public class Parser{
         if (getTokenType(index).equals("OP1") || getTokenType(index).equals("OP2")) {
           stack.push(tokens.get(index));
           index++;
-          while (valueExpr()){
+          while (valueExpr()) {
             if (tokens.get(index).getPriority() > stack.peek().getPriority()){
               stack.push(tokens.get(index));
               index++;

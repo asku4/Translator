@@ -9,7 +9,11 @@ public class StackMachine {
   Set <Object> excludeList = new HashSet<>();
   boolean bConformed = false;
 
-  public void StackMachine(ArrayList <Object> RPN, Set <Object> e){
+  public StackMachine() {
+
+  }
+
+  public void handle(ArrayList <Object> RPN, Set <Object> e){
     this.RPN = RPN;
     this.RPN.add("/123@");
     this.excludeList = e;
