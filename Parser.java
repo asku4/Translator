@@ -421,7 +421,7 @@ public class Parser{
         if (index + 1 > tokens.size()) {
           return false;
         }
-        if ( ! expr()) {
+        if (!expr()) {
           return false;
         }
       }
